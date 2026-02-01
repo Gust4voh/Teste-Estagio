@@ -1,5 +1,6 @@
 from receber_dados.listar_anos import listar_anos_disponiveis
 from receber_dados.listar_trimestres import listar_trimestres
+from receber_dados.listar_zips import listar_zips_trimestre
 
 def obter_ultimos_trimestres(quantidade=3):
     resultados = []
@@ -18,7 +19,5 @@ def obter_ultimos_trimestres(quantidade=3):
     return resultados
 
 if __name__ == "__main__":
-    ultimos = obter_ultimos_trimestres()
-    print("ultimos trimestres encontrados: ")
-    for ano, trimestre in ultimos:
-        print(f"{trimestre}/{ano}")
+    resultado = listar_zips_trimestre(2025, "3T")
+    print(resultado)
