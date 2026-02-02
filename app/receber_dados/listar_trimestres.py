@@ -8,7 +8,6 @@ Utiliza um parâmetro int para buscar os trimestres disponíveis dentro do ano d
 """
 
 
-
 def listar_trimestres(ano: int) -> list[str]:
     url = f"{URL_ANS}/{ano}/"
 

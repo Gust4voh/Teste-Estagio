@@ -23,6 +23,10 @@ def baixar_zips(urls: list[str], pasta_destino: str) -> list[Path]:
         response = requests.get(url, stream=True)
         response.raise_for_status()
 
+        content_type = response.headers.get("Content-Type", "")
+        if "zip" not in content_type:
+            raise ValueError(f"Conteúdo inesperado (não ZIP): {url}")
+
         with open(caminho_arquivo, "wb") as f:
             for chunk in response.iter_content(chunk_size=8192):
                 if chunk:
